@@ -2,6 +2,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -28,15 +29,17 @@ const ImageModal = ({ isOpen, onClose, imageSrc, altText }: ImageModalProps) => 
           </div>
         )}
         
-        <button 
-          className="absolute top-4 right-4 bg-black/50 rounded-full p-2 text-white/90 hover:bg-white/20 transition-colors"
+        <Button 
+          variant="destructive"
+          className="absolute top-4 right-4 rounded-full p-2 hover:bg-red-600 transition-colors"
           onClick={onClose}
         >
           <X className="h-6 w-6" />
-        </button>
+        </Button>
       </div>
     </div>
   );
 };
 
 export default ImageModal;
+

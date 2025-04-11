@@ -1,15 +1,38 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import IcebergSection from '@/components/IcebergSection';
 import ImageModal from '@/components/ImageModal';
 import SkullConfirmation from '@/components/SkullConfirmation';
+import WelcomeScreen from '@/components/WelcomeScreen';
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<string | undefined>(undefined);
   const [showSkullConfirmation, setShowSkullConfirmation] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Check if this is the first visit
+    const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
+    if (hasVisitedBefore) {
+      setShowWelcome(false);
+    }
+  }, []);
+
+  const handleCloseWelcome = () => {
+    setShowWelcome(false);
+    localStorage.setItem('hasVisitedBefore', 'true');
+    
+    // Scroll to the first level
+    document.getElementById('level1')?.scrollIntoView({ behavior: 'smooth' });
+    
+    toast({
+      title: "Начинаем погружение",
+      description: "Нажимайте на кнопки, чтобы открывать скрытые слои информации.",
+    });
+  };
 
   const handleOpenImage = (level: number) => {
     // Здесь будут разные изображения для каждого уровня
@@ -43,6 +66,8 @@ const Index = () => {
 
   return (
     <div className="w-full">
+      {showWelcome && <WelcomeScreen onClose={handleCloseWelcome} />}
+      
       {/* Уровень 1 */}
       <IcebergSection 
         id="level1"

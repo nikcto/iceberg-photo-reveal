@@ -42,4 +42,3 @@ const ImageModal = ({ isOpen, onClose, imageSrc, altText }: ImageModalProps) => 
 };
 
 export default ImageModal;
-

@@ -26,11 +26,6 @@ const Index = () => {
     
     // Scroll to the first level
     document.getElementById('level1')?.scrollIntoView({ behavior: 'smooth' });
-    
-    toast({
-      title: "Начинаем погружение",
-      description: "Нажимайте на кнопки, чтобы открывать скрытые слои информации.",
-    });
   };
 
   const handleOpenImage = (level: number) => {

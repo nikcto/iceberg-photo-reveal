@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -9,7 +8,7 @@ interface WelcomeScreenProps {
 
 const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-iceberg-level1 to-iceberg-level2 text-white animate-fade-in">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-red-800 to-black text-white animate-fade-in">
       <div className="w-full max-w-md text-center px-6">
         <h1 className="text-4xl font-bold mb-4">Добро пожаловать</h1>
         <p className="text-xl mb-8">
@@ -17,7 +16,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onClose }) => {
         </p>
         <Button 
           onClick={onClose} 
-          className="iceberg-button bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 mb-12 group"
+          className="iceberg-button bg-red-900/50 backdrop-blur-sm text-white hover:bg-red-900/70 mb-12 group"
         >
           Узнать Больше <ChevronDown className="ml-1 group-hover:translate-y-1 transition-transform" />
         </Button>

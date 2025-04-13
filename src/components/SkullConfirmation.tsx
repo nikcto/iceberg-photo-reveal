@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -32,26 +31,15 @@ const SkullConfirmation = ({ onConfirm }: SkullConfirmationProps) => {
   return (
     <div className="bg-black/90 p-8 rounded-lg flex flex-col items-center max-w-md w-full">
       <div className="mb-6">
-        <svg 
+        <img 
+          src="/skull-image.jpg" 
+          alt="Предупреждение"
           className={cn(
-            "w-24 h-24 text-white",
-            confirmationLevel === 1 ? "animate-pulse text-red-400" : "",
-            confirmationLevel === 2 ? "animate-pulse-red text-red-600" : ""
+            "w-24 h-24 object-cover rounded-full",
+            confirmationLevel === 1 ? "animate-pulse ring-2 ring-red-400" : "",
+            confirmationLevel === 2 ? "animate-pulse ring-4 ring-red-600" : ""
           )}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="9" r="8" fill="currentColor" />
-          <path d="M9 9.2C9 8.6 9.4 8 10 8C10.6 8 11 8.4 11 9V13L11.6 12.6C12 12.2 12.6 12.4 13 12.8C13.4 13.2 13.2 13.8 12.8 14.2L10.8 16.2C10.4 16.6 9.6 16.6 9.2 16.2L7.2 14.2C6.8 13.8 6.6 13.2 7 12.8C7.4 12.4 8 12.2 8.4 12.6L9 13V9.2Z" fill="black" />
-          <path d="M8.8 4.8C8.6 4.2 8.2 3.6 7.6 3.2C7 2.8 6.2 3 5.8 3.6C5.4 4.2 5.6 5 6.2 5.4C6.6 5.8 7.2 5.6 7.4 5.2" stroke="black" strokeWidth="0.5" />
-          <path d="M15.2 4.8C15.4 4.2 15.8 3.6 16.4 3.2C17 2.8 17.8 3 18.2 3.6C18.6 4.2 18.4 5 17.8 5.4C17.4 5.8 16.8 5.6 16.6 5.2" stroke="black" strokeWidth="0.5" />
-          <path d="M2 18C2 16.8 2.8 16 4 16H20C21.2 16 22 16.8 22 18V22C22 23.2 21.2 24 20 24H4C2.8 24 2 23.2 2 22V18Z" fill="currentColor" />
-          <path d="M5 20H19" stroke="black" strokeWidth="0.5" />
-          <path d="M5 22H19" stroke="black" strokeWidth="0.5" />
-        </svg>
+        />
       </div>
       
       <p className={cn(

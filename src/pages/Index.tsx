@@ -37,31 +37,6 @@ const Index = () => {
     const imagePath = `/level-${level}.jpg`;
     setCurrentImage(imagePath);
     setIsModalOpen(true);
-    
-    const messages = {
-      1: {
-        title: "ЭТО ТОЛЬКО НАЧАЛО!",
-        description: "всем сап",
-        variant: "default"
-      },
-      2: {
-        title: "Нормальная тема?",
-        description: "Как жизнь?",
-        variant: "default"
-      },
-      3: {
-        title: "Ты зашел далеко...",
-        description: "Все швепс",
-        variant: "destructive"
-      }
-    };
-    
-    const message = messages[level as keyof typeof messages];
-    toast({
-      title: message.title,
-      description: message.description,
-      variant: message.variant as "default" | "destructive"
-    });
   };
 
   const handleSkullClick = () => {
@@ -73,11 +48,6 @@ const Index = () => {
     setCurrentImage('/whaat.mp4');
     setIsModalOpen(true);
     
-    toast({
-      title: "Ты дошел до конца!",
-      description: "Спасибо, что был с нами!",
-      variant: "destructive",
-    });
   };
 
   return (
